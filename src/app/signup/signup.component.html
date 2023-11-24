@@ -1,0 +1,95 @@
+
+  
+  <div class="container" style="width: 500px; margin: auto; margin-top: 50px;">
+    <h1>Signup:</h1>
+    <form >
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" required autofocus/>
+        <!-- <mat-error *ngIf="signupForm.get('firstName')!.hasError('required')">
+          First Name is required
+        </mat-error> -->
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" required/>
+        <!-- <mat-error *ngIf="signupForm.get('lastName')!.hasError('required')">
+          Last Name is required
+        </mat-error> -->
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Email address</mat-label>
+        <input matInput placeholder="Email address" required autofocus/>
+        <!-- <mat-error *ngIf="signupForm.get('email')!.hasError('email') && !signupForm.get('email')!.hasError('required')">
+          Enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('email')!.hasError('required')">
+          Email is required
+        </mat-error> -->
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Select Role</mat-label>
+        <mat-select required>
+          <mat-option value="" disabled>Select Roles</mat-option>
+          <!-- <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.roleName }}</mat-option> -->
+        </mat-select>
+        <!--<mat-error *ngIf="signupForm.get('role')!.hasError('required')">Role is required</mat-error> -->
+      </mat-form-field>
+  
+      
+      <div class="form-outline mb-4" >
+        <mat-radio-group>
+          <mat-radio-button value="m">Male</mat-radio-button>
+          <mat-radio-button value="f">Female</mat-radio-button>
+        </mat-radio-group>
+        <!-- <mat-error *ngIf="gender!.invalid && (gender!.dirty || gender!.touched)">Gender is required</mat-error> -->
+      </div>
+      
+      <div class="form-outline mb-4">
+        <mat-form-field style="width: 100%;">
+          <input matInput [matDatepicker]="picker" placeholder="Date of Birth" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="signupForm.get('dob')!.hasError('required')">
+          Date of Birth is required
+        </mat-error> -->
+      </div>
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput  placeholder="Mobile Number" required autofocus />
+        <!-- <mat-error *ngIf="signupForm.get('mobileNumber')!.hasError('pattern') && !signupForm.get('mobileNumber')!.hasError('required')">
+          Mobile Number must contain only 10 digit numeric values
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('mobileNumber')!.hasError('required')">
+          Mobile Number is required
+        </mat-error> -->
+      </mat-form-field>
+      <div class="form-outline mb-4">
+        <mat-form-field style="width: 100%;">
+          <input matInput type="password" id="registerPassword" placeholder="Password" required/>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="!signupForm.get('password')!.hasError('required')">
+          password is required
+        </mat-error>
+        <mat-error *ngIf="signupForm.get('password')!.hasError('pattern') && !signupForm.get('password')!.hasError('required')" >
+          Password should be atleast 8 characters long and should contain one number,one character and one special character
+        </mat-error> -->
+        
+      </div>
+      
+      <div class="form-outline mb-4 " >
+        <mat-form-field style="width: 100%;"> 
+          <input matInput type="password" id="registerRepeatPassword" placeholder="Repeat password" required/>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="!signupForm.get('passwordConfirm')!.hasError('required')" >Repeat Password is required</mat-error> -->
+      </div>
+  
+      <button type="submit" mat-raised-button color="primary" >
+        Sign up
+      </button>
+    </form>
+  </div>

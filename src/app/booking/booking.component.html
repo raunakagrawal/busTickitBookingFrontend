@@ -1,0 +1,58 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+<div class="container" style="width: 700px; margin: auto; margin-top: 50px;">
+    <mat-form-field appearance="fill" formControlName="from" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Select Start</mat-label>
+        <mat-select required>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" formControlName="destination" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Select Destination</mat-label>
+        <mat-select required>
+
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>No. of Tickits</mat-label>
+        <mat-select formControlName="numberOfTickets" (selectionChange)="onChangeTickets($event)" required>
+            <mat-option *ngFor="let i of [1,2,3,4,5]" [value]="i">{{i}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+        <input matInput [matDatepicker]="picker" formControlName="journetDate" placeholder="Date of Journey" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <div>
+        <div *ngFor="let ticket of t; let i = index" class="list-group list-group-flush">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Passanger {{i + 1}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div [formGroup]="ticket" class="form-row">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput  formControlName="name" placeholder="Name" required  />
+                    </mat-form-field>
+                    <mat-form-field style="width: 49%; margin-right: 2%">
+                        <mat-label>Age</mat-label>
+                        <input matInput type="number" formControlName="age" placeholder="Age" required  />
+                    </mat-form-field>
+                    <mat-form-field style="width: 49%;">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender"required>
+                            <mat-option value="m">Male</mat-option>
+                            <mat-option value="f">Female</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <br>
+        </div>
+    </div>
+    <button mat-stroked-button>Preview</button>
+
+</div>
+</form>

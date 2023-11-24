@@ -1,0 +1,25 @@
+
+  
+  <div class="container" style="width: 500px; margin: auto; margin-top: 50px;">
+    <h1>Login:</h1>
+    <form >
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" required autofocus/>
+        <!-- <mat-error *ngIf="signupForm.get('firstName')!.hasError('required')">
+          First Name is required
+        </mat-error> -->
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" required/>
+        <!-- <mat-error *ngIf="signupForm.get('lastName')!.hasError('required')">
+          Last Name is required
+        </mat-error> -->
+      </mat-form-field>  
+      <button type="submit" mat-raised-button color="primary" >
+        Sign up
+      </button>
+    </form>
+  </div>
