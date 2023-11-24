@@ -26,6 +26,8 @@ import { LoginComponent } from './login/login.component';
 import { BookingComponent } from './booking/booking.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import { AdminComponent } from './admin/admin.component';
     MatSidenavModule,
     HttpClientModule,MatInputModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatDialogModule,
     ReactiveFormsModule,CommonModule,MatTableModule,MatIconModule,MatListModule,MatBadgeModule,MatSelectModule,
-    MatRadioModule,MatDatepickerModule,MatNativeDateModule,MatSnackBarModule
+    MatRadioModule,MatDatepickerModule,MatNativeDateModule,MatSnackBarModule,MatToolbarModule,MatMenuModule
 
   ],
   providers: [],

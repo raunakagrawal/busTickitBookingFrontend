@@ -1,22 +1,10 @@
-
-  <mat-drawer #drawer class="my-drawer" mode="over" opened>
-    <mat-sidenav-container class="my-container">
-      <mat-sidenav-content class="my-drawer-content" routerLink="login">Login</mat-sidenav-content>
-    </mat-sidenav-container>
-    <mat-sidenav-container class="my-container">
-      <mat-sidenav-content class="my-drawer-content" routerLink="signup">Signup</mat-sidenav-content>
-    </mat-sidenav-container>
-    <mat-sidenav-container class="my-container">
-      <mat-sidenav-content class="my-drawer-content" routerLink="dashboard">Dashboard</mat-sidenav-content>
-    </mat-sidenav-container>
-    <mat-sidenav-container class="my-container">
-      <mat-sidenav-content class="my-drawer-content" routerLink="bookings">Bookings</mat-sidenav-content>
-    </mat-sidenav-container>
-    <mat-sidenav-container class="my-container">
-      <mat-sidenav-content class="my-drawer-content" routerLink="admin">Admin</mat-sidenav-content>
-    </mat-sidenav-container>
-  </mat-drawer>
-
+  <mat-toolbar>
+  <button mat-button routerLink="login">Login</button>  
+  <button mat-button routerLink="signup">Login</button>
+  <button mat-button routerLink="dashboard">Dashboard</button>
+  <button mat-button routerLink="bookings">Bookings</button>
+  <button mat-button routerLink="admin">Admin</button>
+</mat-toolbar>
   <div>
     <router-outlet></router-outlet>
   </div>

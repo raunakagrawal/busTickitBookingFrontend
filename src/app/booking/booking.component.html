@@ -1,13 +1,16 @@
+
+
 <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
 <div class="container" style="width: 700px; margin: auto; margin-top: 50px;">
-    <mat-form-field appearance="fill" formControlName="from" class="form-outline mb-4" style="width: 100%;">
-        <mat-label>Select Start</mat-label>
-        <mat-select required>
+    <h3>Booking Form:</h3>
+    <mat-form-field appearance="fill"  class="form-outline mb-4" style="width: 100%;">
+        <mat-label >Select Start</mat-label>
+        <mat-select formControlName="from" required>
         </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" formControlName="destination" class="form-outline mb-4" style="width: 100%;">
+    <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
         <mat-label>Select Destination</mat-label>
-        <mat-select required>
+        <mat-select formControlName="destination"  required>
 
         </mat-select>
     </mat-form-field>
@@ -18,7 +21,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field style="width: 100%;">
-        <input matInput [matDatepicker]="picker" formControlName="journetDate" placeholder="Date of Journey" required>
+        <input matInput [matDatepicker]="picker" [min]="todayDate" [max]="lastDate" formControlName="journetDate" placeholder="Date of Journey" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

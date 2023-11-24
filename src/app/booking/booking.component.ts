@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 export class BookingComponent implements OnInit{
   dynamicForm!: FormGroup;
   submitted = false;
+  todayDate: Date = new Date();
+  lastDate : Date = new Date();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -20,6 +22,8 @@ export class BookingComponent implements OnInit{
         numberOfTickets: ['', Validators.required],
         tickets: new FormGroup([])
       });
+      this.lastDate.setDate(this.todayDate.getDate()+30)
+      console.log(this.lastDate);
   }
   get t(): FormGroup[] {
     const formArray = this.dynamicForm?.get('tickets') as FormArray;
