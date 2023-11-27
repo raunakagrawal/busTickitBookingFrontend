@@ -1,1 +1,2 @@
-<app-booking></app-booking>
+<app-booking *ngIf="loggedInUser.role=='Customer'"></app-booking>
+<app-admin *ngIf="loggedInUser.role=='Admin'"></app-admin>

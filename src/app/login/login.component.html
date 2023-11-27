@@ -1,25 +1,23 @@
 
   
   <div class="container" style="width: 500px; margin: auto; margin-top: 50px;">
-    <h1>Login:</h1>
-    <form >
-      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" required autofocus/>
-        <!-- <mat-error *ngIf="signupForm.get('firstName')!.hasError('required')">
-          First Name is required
-        </mat-error> -->
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="form-outline mb-4" style="width: 100%;">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" required/>
-        <!-- <mat-error *ngIf="signupForm.get('lastName')!.hasError('required')">
-          Last Name is required
-        </mat-error> -->
-      </mat-form-field>  
-      <button type="submit" mat-raised-button color="primary" >
-        Sign up
-      </button>
-    </form>
-  </div>
+  <mat-card class="login-card">
+    <mat-card-header style="margin-bottom: 10px;">
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field style="width: 100%;">
+          <input matInput [formControl]="email" placeholder="Your email" type="email" name="email" required>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+          <input matInput [formControl]="password" placeholder="Your password" type="password" name="password" required>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" >
+      <button mat-raised-button color="primary" (click)="login()" style="margin-right: 10px;">Login</button>
+      <a routerLink="/signup">No Account? Signup!</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
