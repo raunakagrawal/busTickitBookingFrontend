@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { City } from '../model/cities';
 import { CitiesService } from '../service/cities.service';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-booking',
@@ -22,7 +23,7 @@ export class BookingComponent implements OnInit{
   destinationCities: City[] = [];
   distance!: number;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private citiesService: CitiesService, private datePipe: DatePipe) { }
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog, private citiesService: CitiesService, private datePipe: DatePipe, private snackBar: MatSnackBar ) { }
 
   ngOnInit() {
       this.dynamicForm = this.formBuilder.group({
@@ -54,7 +55,7 @@ export class BookingComponent implements OnInit{
       for (let i = this.formarray.controls.length; i < this.numberOfTickets; i++) {
         const newTicket = this.formBuilder.group({
           name: ['', Validators.required],
-          age: ['', [Validators.required]],
+          age: ['', [Validators.required , Validators.min(1)]],
           gender: ['', [Validators.required]],
         },);
         this.formarray.push(newTicket);
@@ -76,11 +77,11 @@ getDistance(){
 
   const start = this.cities.find((city: any) => city.id === startcity);
   const end = this.cities.find((city: any) => city.id === endtcity);
-  if (start !== undefined && end !== undefined) {
-    const startDistande = start.distance;
-    const endDistande = end.distance;
-    this.distance = endDistande - startDistande;
-  }
+    if (start !== undefined && end !== undefined) {
+      const startDistande = start.distance;
+      const endDistande = end.distance;
+      this.distance = endDistande - startDistande;
+    }
   }
   
   openPreview(){
@@ -89,16 +90,28 @@ getDistance(){
 
     this.dynamicForm.get('journeyDate')!.setValue(formattedDate);
     this.dynamicForm.get('distance')!.setValue(this.distance);
-    this.dynamicForm.get('user')!.setValue(this.distance);
-    
-    const dialogRef = this.dialog.open(PreviewbookingComponent, { 
-      data: this.dynamicForm.value,
-      width: '60%',
-      height: '70%'
-    });
 
-    dialogRef.afterClosed().subscribe((data) => {
-      this.dynamicForm.reset;
-    });
+    if(this.dynamicForm.valid){
+      const dialogRef = this.dialog.open(PreviewbookingComponent, { 
+        data: this.dynamicForm.value,
+        width: '60%',
+        height: '70%'
+      });
+      dialogRef.afterClosed().subscribe((data) => {
+        if(data == true){
+          this.dynamicForm.reset();
+        }
+      });
+    } else {
+      this.snackBar.open( 'Fill Form Correctly', 'Ok', {
+        panelClass: 'my-custom-snackbar',
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+        duration: 5000
+      });
+    }
+    
+
+    
   }
 }

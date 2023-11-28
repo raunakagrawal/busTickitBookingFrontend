@@ -8,6 +8,7 @@ import { User } from '../model/user';
 import { BookingService } from '../service/booking.service';
 import { CitiesService } from '../service/cities.service';
 import { City } from '../model/cities';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-previewbooking',
@@ -15,13 +16,15 @@ import { City } from '../model/cities';
   styleUrls: ['./previewbooking.component.css']
 })
 export class PreviewbookingComponent implements OnInit{
-  constructor(private citiesService: CitiesService, private dialogRef: MatDialogRef<PreviewbookingComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe, private userStateService: UserStateService, private router: Router, private bookingservice: BookingService) {}
+  constructor(private citiesService: CitiesService, private snackBar: MatSnackBar , private dialogRef: MatDialogRef<PreviewbookingComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private datePipe: DatePipe, private userStateService: UserStateService, private router: Router, private bookingservice: BookingService) {}
 
   loggedInUser!: User;
   cities: City[] =[];
   departure!: String;
   destination!: String;
   response!: string;
+  responseData!: any;
+
   ngOnInit() {
     this.userStateService.loggedInUser$.subscribe(user => {
       this.loggedInUser = user!;
@@ -87,8 +90,17 @@ export class PreviewbookingComponent implements OnInit{
       tickets: this.ticketDataArray
     }
 
-    this.bookingservice.createBooking(booking).subscribe();
-    alert("Booking Successfull, Check status in history.");
-    this.dialogRef.close();
+    this.bookingservice.createBooking(booking).subscribe(data => {
+      this.responseData = data;
+      if(this.responseData.data == null){
+        this.snackBar.open( this.responseData.message, 'Ok', {
+          panelClass: 'my-custom-snackbar',
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          duration: 5000
+      });
+      this.dialogRef.close({data: true});
+    }
+  });
 }
 }

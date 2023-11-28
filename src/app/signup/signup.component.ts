@@ -4,7 +4,7 @@ import { SignUpUser } from '../model/signupuser';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar} from '@angular/material/snack-bar';
 import { UserStateService } from '../service/user-state.service';
 import { User } from '../model/user';
 
@@ -71,9 +71,19 @@ export class SignupComponent implements OnInit {
     const passwordCnfrm = this.signupForm.controls['passwordConfirm']!.value;
 
     if(password1 !== passwordCnfrm){
-      alert('Password Does not Match');
+      this.snackBar.open( 'Password Does not Match', 'Ok', {
+        panelClass: 'my-custom-snackbar',
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+        duration: 5000
+      });
     }else if (age < 18) {
-      alert('You must be at least 18 years old to submit this form.');
+      this.snackBar.open( 'You must be at least 18 years old to submit this form.', 'Ok', {
+        panelClass: 'my-custom-snackbar',
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+        duration: 5000
+      });
     }else {
       const {
         email,

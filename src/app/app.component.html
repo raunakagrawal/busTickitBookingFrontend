@@ -1,12 +1,15 @@
   <mat-toolbar>
-  <button mat-button routerLink="login">Login</button>  
-  <button mat-button routerLink="signup">Signup</button>
-  <button mat-button routerLink="dashboard">Dashboard</button>
-  <button mat-button routerLink="bookings">Bookings</button>
-  <button mat-button routerLink="history">Booking History</button>
-  <button mat-button routerLink="admin">Admin</button>
-  <button mat-button (click)="logout()">Logout</button>
-</mat-toolbar>
+    <button *ngIf="!loggedInUser" mat-button routerLink="login">Login</button>  
+    <button *ngIf="!loggedInUser" mat-button routerLink="signup">Signup</button>
+    <button *ngIf="loggedInUser" mat-button routerLink="dashboard">Dashboard</button>
+    <button *ngIf="loggedInUser && loggedInUser.role=='Customer'" mat-button routerLink="history">Booking History</button>
+    
+    <span class="example-spacer"></span>
+    <label  *ngIf="loggedInUser" style="margin-right: 15px;">
+      {{loggedInUser.role}}
+    </label>
+    <button *ngIf="loggedInUser" mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
   <div>
     <router-outlet></router-outlet>
   </div>

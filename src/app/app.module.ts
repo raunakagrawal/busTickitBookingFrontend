@@ -25,6 +25,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 import { LoginComponent } from './login/login.component';
 import { BookingComponent } from './booking/booking.component';
@@ -54,7 +56,7 @@ import { UserService } from './service/user.service';
     HttpClientModule,MatInputModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatDialogModule,
     ReactiveFormsModule,CommonModule,MatTableModule,MatIconModule,MatListModule,MatBadgeModule,MatSelectModule,
     MatRadioModule,MatDatepickerModule,MatNativeDateModule,MatSnackBarModule,MatToolbarModule,MatMenuModule,
-    FormsModule
+    FormsModule, MatPaginatorModule
 
   ],
   providers: [DatePipe, UserService],

@@ -5,7 +5,8 @@ toCity: string,
 passangerId: number,
 passangerAge: number,
 passangerName: string,
+passangerGender: string,
 fare: number,
-journeyType: number,
-status: number
+journeyType: boolean,
+status: boolean
 }
