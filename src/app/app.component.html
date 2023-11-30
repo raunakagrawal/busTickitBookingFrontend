@@ -3,10 +3,13 @@
     <button *ngIf="!loggedInUser" mat-button routerLink="signup">Signup</button>
     <button *ngIf="loggedInUser" mat-button routerLink="dashboard">Dashboard</button>
     <button *ngIf="loggedInUser && loggedInUser.role=='Customer'" mat-button routerLink="history">Booking History</button>
-    
+    <button *ngIf="loggedInUser && loggedInUser.role=='Admin'" mat-button routerLink="adminhistory">History</button>
     <span class="example-spacer"></span>
-    <label  *ngIf="loggedInUser" style="margin-right: 15px;">
-      {{loggedInUser.role}}
+    <label  *ngIf="loggedInUser" style="margin-right: 5px;">
+      {{loggedInUser.fullName}}
+    </label>
+    <label  *ngIf="loggedInUser" style="margin-right: 15px; font-size: 10px;">
+      ({{loggedInUser.role}})
     </label>
     <button *ngIf="loggedInUser" mat-button (click)="logout()">Logout</button>
   </mat-toolbar>

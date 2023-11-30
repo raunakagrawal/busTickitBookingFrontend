@@ -1,0 +1,59 @@
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  .table-container {
+    text-align: center;
+    position: relative;
+  }
+  
+  .no-bookings-message {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #777; 
+  }
+
+  button {
+    margin-top: 16px;
+    font-size: 20px; 
+    padding: 12px 24px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border-collapse: collapse;
+    padding: 8px; 
+    position: relative;
+  }
+  
+  th {
+    background-color: #f2f2f2; 
+  }
+  
+  th:not(:last-child)::after,
+  td:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 50%; 
+    width: 2px; 
+    background-color: #ddd;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5; /* Add background color on hover */
+  }
+  tr:hover {
+    background-color: #f5f5f5;
+  }

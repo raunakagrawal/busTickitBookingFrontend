@@ -1,0 +1,47 @@
+<div *ngIf="dataLoaded===true" style="width: 70%; margin: auto; margin-top: 50px;" class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.date | date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef>From</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.fromCity }}</td>
+      </ng-container>
+      <ng-container matColumnDef="destination">
+        <th mat-header-cell *matHeaderCellDef>Destination</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.toCity }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.passangerName }}</td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>Age</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.passangerAge }}</td>
+      </ng-container>
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.passangerGender }}</td>
+      </ng-container>
+      <ng-container matColumnDef="fare">
+        <th mat-header-cell *matHeaderCellDef>Fare</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.fare }}</td>
+      </ng-container>
+      <ng-container matColumnDef="journeyType">
+        <th mat-header-cell *matHeaderCellDef>Journey Type</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.journeyType }}</td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.status }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  
+
+  

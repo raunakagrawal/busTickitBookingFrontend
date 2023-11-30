@@ -25,7 +25,7 @@ export class BookinghistoryComponent implements OnInit{
     });
     try {
       const data = await this.bookingService.bookinHistory(this.loggedInUser.id).toPromise();
-      this.bookings = data;
+      this.bookings = data.data;
       this.dataLoaded = true;
       this.bookingsData = this.bookings.map(obj => {
         if (obj.status == true) {

@@ -26,7 +26,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatSortModule } from '@angular/material/sort';
 
 import { LoginComponent } from './login/login.component';
 import { BookingComponent } from './booking/booking.component';
@@ -35,8 +35,10 @@ import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
 import { PreviewbookingComponent } from './previewbooking/previewbooking.component';
+import { AdminHistoryComponent } from './admin-history/admin-history.component';
 
 import { UserService } from './service/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { UserService } from './service/user.service';
     DashboardComponent,
     AdminComponent,
     BookinghistoryComponent,
-    PreviewbookingComponent
+    PreviewbookingComponent,
+    AdminHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { UserService } from './service/user.service';
     HttpClientModule,MatInputModule,MatButtonModule,MatCardModule,MatFormFieldModule,MatDialogModule,
     ReactiveFormsModule,CommonModule,MatTableModule,MatIconModule,MatListModule,MatBadgeModule,MatSelectModule,
     MatRadioModule,MatDatepickerModule,MatNativeDateModule,MatSnackBarModule,MatToolbarModule,MatMenuModule,
-    FormsModule, MatPaginatorModule
+    FormsModule, MatPaginatorModule,MatSortModule
 
   ],
   providers: [DatePipe, UserService],

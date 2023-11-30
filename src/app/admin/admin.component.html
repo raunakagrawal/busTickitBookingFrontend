@@ -8,6 +8,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <div *ngIf="selectedDate !==undefined">
+      <div *ngIf=" day % 2 !== 0 ">
     <label>
       Straight Journey
     </label>
@@ -55,7 +56,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       <tr mat-footer-row *matFooterRowDef="['footer','fare'];"></tr>
     </table>
-    <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons></mat-paginator>
+    <!-- <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons></mat-paginator> -->
+  </div>
+  <div *ngIf=" day % 2 == 0 ">
     <br>
     <label>
       Return Journey
@@ -104,7 +107,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       <tr mat-footer-row *matFooterRowDef="['footer','fare'];"></tr>
     </table>
-
+  </div>
     <div style="text-align: right; margin-right: 15px;">
       <button mat-raised-button color="primary" (click)="acceptBookings()" >Accept</button>
     </div>  

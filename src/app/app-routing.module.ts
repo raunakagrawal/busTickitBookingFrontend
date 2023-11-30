@@ -7,6 +7,7 @@ import { BookingComponent } from './booking/booking.component';
 import { AdminComponent } from './admin/admin.component';
 import { BookinghistoryComponent } from './bookinghistory/bookinghistory.component';
 import { PreviewbookingComponent } from './previewbooking/previewbooking.component';
+import { AdminHistoryComponent } from './admin-history/admin-history.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'history', component: BookinghistoryComponent },
   { path: 'preview', component: PreviewbookingComponent },
+  { path: 'adminhistory', component: AdminHistoryComponent },
 ];
 
 @NgModule({
